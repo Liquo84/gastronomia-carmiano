@@ -5,7 +5,7 @@ Sito di pre-ordine per la gastronomia d'asporto con catering di Via Leverano 29/
 l'attività di DB & G che Davide e Luca (Salento Energia / SEESCo) stanno rilevando.
 Il nome «Bottega Leverano 29» è un **segnaposto**: il nome vero non è ancora deciso.
 
-Il modello è **vendere sul venduto**: il cliente sceglie il giorno, ordina entro la sera prima,
+Il modello è **vendere sul venduto**: il cliente ordina per un giorno entro la sera prima,
 la bottega la mattina sa esattamente cosa cucinare. Non è un menù sempre disponibile.
 Il ragionamento completo sta in `PROGETTO.md`.
 
@@ -23,6 +23,10 @@ niente pagamenti veri, niente WhatsApp. Serve a far provare il flusso e a decide
 - **Il gestionale è sempre raggiungibile**, senza finte schermate di accesso. Il login vero
   arriva con il database (fase 2). Il link «Gestionale» in alto nel negozio va tolto quando
   il sito diventa pubblico per i clienti.
+- **Il giorno si sceglie nel checkout, non in vetrina.** Il menù mostra tutto; i piatti che non si
+  fanno tutti i giorni portano l'etichetta «Solo …»; al checkout, scelto il giorno, i piatti
+  incompatibili vengono segnalati con il pulsante «Sistema il carrello». Decisione di Davide del
+  14/09 per non sopraffare il cliente.
 - **I testi sono provvisori** (Davide, 14/09: «sicuramente da rivedere»). Si cambiano senza
   chiedere finché il sito è di prova; quando ci sarà il nome vero si fa un giro completo.
 - Le regole del pre-ordine (chiusura alle 20:00, giorno stesso fino alle 10:00, tetti per piatto,
@@ -33,7 +37,7 @@ niente pagamenti veri, niente WhatsApp. Serve a far provare il flusso e a decide
   poi si dice a Davide com'è andata.
 
 ## Dove stanno le cose
-- `sito/index.html` — il negozio: giorno, menù, carrello, checkout, modulo catering.
+- `sito/index.html` — il negozio: menù, carrello, checkout (giorno, ora, dati, pagamento), modulo catering.
 - `sito/gestionale.html` — il gestionale: produzione, ordini, menù e giorni, catering, incassi, impostazioni.
   Si apre direttamente su una pagina con `#orders`, `#menu`, ecc.
 - `sito/assets/stile.css` — tutto lo stile, palette in cima.

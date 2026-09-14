@@ -8,8 +8,8 @@ esattamente cosa cucinare, per chi e quanto incassa.
 
 ## Le tre facce del sistema
 
-- **Negozio (cliente).** Si sceglie prima il giorno, poi il menù di quel giorno. Carrello,
-  checkout in 4 passi, tracking dell'ordine, modulo catering. Pensato per il telefono.
+- **Negozio (cliente).** Menù, carrello, checkout in 4 passi in cui si scelgono giorno e ora,
+  tracking dell'ordine, modulo catering. Pensato per il telefono, con il minimo di testo.
 - **Gestionale (bottega).** Lista di produzione per giorno (il cuore), bacheca ordini, menù con
   giorni e limiti di porzioni, catering, incassi, orari di chiusura prenotazioni, zone, pausa.
 - **Servizi esterni.** Stripe (carta, Apple/Google Pay, Satispay), WhatsApp/SMS al cliente a ogni
@@ -20,7 +20,7 @@ esattamente cosa cucinare, per chi e quanto incassa.
 | Quando | Cosa succede |
 |---|---|
 | Sera prima | **La bottega pubblica.** Il menù dei prossimi giorni è già deciso: ogni piatto ha i giorni in cui si fa e, se serve, un tetto di porzioni. |
-| Fino alle 20:00 | **I clienti prenotano.** Scelgono il giorno, i piatti, l'ora di ritiro o consegna. Al tetto di porzioni il piatto si chiude da solo. |
+| Fino alle 20:00 | **I clienti prenotano.** Scelgono i piatti, poi il giorno e l'ora di ritiro o consegna. Al tetto di porzioni il piatto si chiude da solo. |
 | 20:00 | **Chiusura prenotazioni.** La lista di produzione si congela. Promemoria automatico ai clienti, comanda cumulativa per la cucina. |
 | Mattina | **Si cucina il venduto.** Quantità esatte per piatto. Gli ordini avanzano: confermato → pronto → ritirato o consegnato. |
 | Stesso giorno | **Eccezione governata.** Fino alle 10:00 si può ancora ordinare per oggi, ma solo i piatti già in produzione e nel margine impostato. |
@@ -37,7 +37,8 @@ prenota, non passa sperando di trovarla.
 - **Tetto di porzioni.** Per piatto e per giorno. Raggiunto il tetto, il piatto mostra «esaurito per
   questo giorno» ma resta prenotabile per gli altri.
 - **Giorni di produzione.** Ogni piatto ha i suoi giorni: la lasagna la domenica, i pezzetti il
-  sabato. Il cliente vede solo ciò che quel giorno si cucina.
+  sabato. In vetrina il piatto porta i suoi giorni; al checkout, scelto il giorno, i piatti che
+  quel giorno non si fanno vanno tolti dal carrello.
 - **Fasce di ritiro.** A passi di 15 minuti dentro gli orari del giorno, con un massimo di ordini
   per fascia per non intasare il banco.
 - **Zone di consegna.** Per comune: costo, minimo d'ordine. Fuori zona il checkout propone il ritiro.

@@ -32,6 +32,21 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 
 ---
 
+## 14/09 — Il giorno si sceglie nel checkout
+
+**Cosa.** Via la fila dei giorni dalla vetrina. Il menù mostra tutti i piatti in vendita; quelli
+che non si fanno tutti i giorni portano l'etichetta «Solo ven, sab, dom». Il giorno si sceglie
+al primo passo del checkout, insieme a ritiro/consegna e ora. Scelto il giorno, i piatti che
+non si fanno o che superano le porzioni rimaste vengono elencati, con il pulsante «Sistema il
+carrello» che li toglie o li riduce.
+**Perché.** Davide: «Eliminerei anche i giorni del calendario. Lasciamo la scelta del giorno
+solo in fase di checkout». Meno cose da capire prima di vedere i piatti.
+**Il rovescio.** Prima il cliente vedeva solo ciò che si cucina il giorno scelto; ora può
+mettere nel carrello la lasagna e scoprire al checkout che domani non si fa. L'etichetta e
+il pulsante «Sistema il carrello» servono a questo. Se in prova si vedrà che dà fastidio,
+si torna a mostrare il giorno, ma sul carrello e non in cima alla pagina.
+**Esito.** Online.
+
 ## 14/09 — Negozio ridotto all'essenziale
 
 **Cosa.** Tolti dal negozio la spiegazione sotto il titolo, i tre bollini e il riquadro con

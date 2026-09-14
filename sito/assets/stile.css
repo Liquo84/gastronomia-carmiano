@@ -46,12 +46,8 @@ input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{out
 .infocard b{color:var(--ink)}
 .banner{margin-top:16px;background:var(--warn-soft);color:var(--ink);border:1px solid var(--warn);border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600}
 
-/* scelta del giorno: il cuore del pre-ordine */
-.daybar{position:sticky;top:57px;z-index:21;background:var(--bg);padding:10px 0 0;border-top:1px solid var(--line)}
-.daybar .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.daybar .lbl b{font-family:"Fraunces",Georgia,serif;font-size:19px}
-.daybar .cut{font-size:13px;color:var(--ink2)}
-.days{display:flex;gap:8px;overflow-x:auto;padding:10px 0 12px;scrollbar-width:none}
+/* scelta del giorno, nel checkout */
+.days{display:flex;gap:8px;overflow-x:auto;padding:8px 0 10px;scrollbar-width:none}
 .days::-webkit-scrollbar{display:none}
 .day{flex:0 0 auto;min-width:84px;padding:9px 12px;border-radius:12px;background:var(--surface);border:1.5px solid var(--line);text-align:left;line-height:1.2}
 .day small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);font-weight:700}
