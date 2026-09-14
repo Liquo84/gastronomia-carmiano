@@ -15,7 +15,7 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 | Indirizzo | https://liquo84.github.io/gastronomia-carmiano/ (gestionale: `/gestionale.html`) |
 | Pubblicazione | Automatica a ogni push su `main` |
 | Nome | «Bottega Leverano 29», segnaposto |
-| Testi | Provvisori, da rivedere |
+| Testi | Ridotti all'essenziale il 14/09; da rivedere con il nome vero |
 | Costo | Zero |
 
 ---
@@ -31,6 +31,20 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 - [ ] **Fase 2**: database e login. Supabase resta la proposta (stesso impianto del CRM preventivi), va confermata.
 
 ---
+
+## 14/09 — Negozio ridotto all'essenziale
+
+**Cosa.** Tolti dal negozio la spiegazione sotto il titolo, i tre bollini e il riquadro con
+orari, consegna e pagamenti; i giorni mostrano solo nome e data (il testo compare solo se
+chiuso o per l'eccezione di oggi); niente conteggio piatti per categoria, niente «più
+prenotato», «esaurito» secco; via i suggerimenti nel carrello e nel checkout, descrizioni dei
+pagamenti a una riga, tracking senza sottotitoli. Modulo catering da 8 campi a 6, formule
+con una riga invece dell'elenco.
+**Perché.** Davide, dopo averlo visto sul telefono: «troppo testo, non vorrei mandare il
+cliente in overwhelming». Sul telefono il menù ora entra nella prima schermata.
+**Non toccato.** Il gestionale: è per la bottega, non per il cliente.
+**Esito.** Online. Le informazioni tolte (cutoff, consegna, pagamenti) restano dove servono:
+sotto il giorno scelto, nel carrello e nei passi del checkout.
 
 ## 14/09 — Da artifact a repository su GitHub
 
