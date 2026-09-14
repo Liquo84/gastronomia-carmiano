@@ -39,7 +39,7 @@ function persistState(){save(K.products,products);save(K.settings,settings);save
 function seedOrders(){
  const mk=(n,date,st,mode,cust,rows,pay,slot)=>({n,date,st,mode,cust,rows:rows.map(([id,q])=>({id,q})),pay,slot,paid:pay!=="cash",ex:true,created:nowHM(),zone:mode==="consegna"?"Carmiano":null,addr:mode==="consegna"?"Via Roma 12, Carmiano":null});
  const d2=dkey(addDays(2)),d3=dkey(addDays(3));
- return [
+ const list=[
   mk(140,TODAY,"done","ritiro",{name:"Anna Perrone",tel:"347 000 0001"},[[8,2],[19,4]],"card","12:30"),
   mk(141,TODAY,"done","consegna",{name:"Giuseppe Miglietta",tel:"329 000 0002"},[[8,2],[14,1],[21,2]],"cash","13:00"),
   mk(142,TODAY,"ready","ritiro",{name:"Lucia Rizzo",tel:"340 000 0003"},[[10,1],[13,1],[16,4]],"satispay","19:00"),
@@ -50,6 +50,8 @@ function seedOrders(){
   mk(147,d2,"new","ritiro",{name:"Rosaria Capone",tel:"340 000 222"},[[2,2],[13,2],[17,1]],"cash","19:30"),
   mk(148,d3,"new","ritiro",{name:"Paolo De Giorgi",tel:"333 000 333"},[[6,3],[10,3],[20,3]],"satispay","13:15"),
  ].map(o=>{o.tot=orderTotal(o);return o});
+ /* Se oggi la bottega è chiusa, gli esempi di oggi non hanno senso. */
+ return hoursOf(TODAY)?list:list.filter(o=>o.date!==TODAY);
 }
 function seedCat(){return [
  {id:1,tipo:"Pranzo o cena aziendale",formula:"Buffet completo",data:"2026-09-26",persone:40,nome:"Studio Tecnico Manca",tel:"0832 000 111",luogo:"Sede, Monteroni",note:"Due vegetariani, un celiaco.",st:"preventivo",importo:880,ex:true},
