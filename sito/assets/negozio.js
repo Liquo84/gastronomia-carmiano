@@ -69,7 +69,7 @@ function renderCheckout(){
   <div class="eyebrow" style="margin:22px 0 6px">Come</div>
   <div class="opts">
   <label class="opt ${co.mode==="ritiro"?"on":""}" data-m="ritiro"><span class="rad"></span><span><b>Ritiro in bottega</b><span>Via Leverano 29/A</span></span><span class="num">gratis</span></label>
-  <label class="opt ${co.mode==="consegna"?"on":""}" data-m="consegna"><span class="rad"></span><span><b>Consegna a casa</b><span>Carmiano e dintorni</span></span><span class="num">da ${eur(Math.min(...settings.zones.map(z=>z.cost)))}</span></label></div>
+  <label class="opt ${co.mode==="consegna"?"on":""}" data-m="consegna"><span class="rad"></span><span><b>Consegna a casa</b><span>Carmiano e dintorni</span></span><span class="num">${settings.zones[0].cost?"da "+eur(Math.min(...settings.zones.map(z=>z.cost))):"gratis a "+esc(settings.zones[0].c)}</span></label></div>
   ${co.mode==="consegna"?`<div style="margin:14px 0 0"><label class="small muted" style="font-weight:700">Comune<select id="zoneSel">${settings.zones.map(z=>`<option ${z.c===co.zone?"selected":""}>${z.c} · ${z.cost?eur(z.cost):"gratis"} · min. ${eur(z.min)}</option>`).join("")}</select></label></div>`:""}
   <div class="eyebrow" style="margin:22px 0 4px">A che ora</div>
   <div class="slots">${sl.length?sl.map(s=>`<button data-slot="${s.s}" class="${co.slot===s.s?"on":""}" ${s.full?"disabled title='Fascia piena'":""}>${s.s}</button>`).join(""):'<span class="muted small">Nessun orario disponibile.</span>'}</div>
