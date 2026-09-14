@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bottega Leverano 29 · Gastronomia su prenotazione a Carmiano</title>
+<meta name="description" content="Gastronomia d'asporto su prenotazione a Carmiano (LE): scegli il giorno, ordina entro la sera prima, ritira o ricevi a casa. Catering per eventi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/stile.css">
+</head>
+<body>
+
+<div class="top">
+  <a class="brand" href="./">Bottega Leverano 29<small>Gastronomia d'asporto su prenotazione · Catering · Carmiano (LE)</small></a>
+  <span class="proto">Versione di prova · gli ordini restano nel tuo browser</span>
+  <a class="lnk" href="gestionale.html">Gestionale<span class="dot hide" id="dotNew"></span></a>
+</div>
+
+<section id="view-shop" class="shop">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Via Leverano 29/A · Carmiano</div>
+      <h1>Ordini oggi, <em>cuciniamo domani.</em></h1>
+      <p>Prepariamo solo quello che ci hai prenotato: porzioni fresche, niente sprechi, e il tuo piatto è sicuro. Scegli il giorno, ordina entro l'orario di chiusura prenotazioni, ritira o ricevi a casa.</p>
+      <div class="chips" id="chips"></div>
+      <div class="banner hide" id="pauseBanner">In questo momento le prenotazioni online sono sospese: riprova più tardi o chiama il 0832 000 000.</div>
+    </div>
+    <div class="hero-side">
+      <div class="infocard">
+        <span class="muted">Per domani</span><b id="infoCut">ordina entro le 20:00 di oggi</b>
+        <span class="muted">Per oggi</span><b id="infoToday">solo fino alle 10:00, su ciò che è in produzione</b>
+        <span class="muted">Consegna</span><b id="infoDeliv">gratis a Carmiano, da 2,50 € nei comuni vicini</b>
+        <span class="muted">Pagamenti</span><b>Carta, Satispay, contanti al ritiro</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="daybar">
+    <div class="lbl"><b id="dayTitle">Per quale giorno ordini?</b><span class="cut" id="dayCut"></span></div>
+    <div class="days" id="days"></div>
+  </div>
+
+  <div class="shop-grid">
+    <div>
+      <nav class="cats" id="cats"></nav>
+      <div id="menu"></div>
+
+      <div class="catering" id="catering">
+        <div class="eyebrow">Catering ed eventi</div>
+        <h2>Buffet, pranzi aziendali, feste in famiglia</h2>
+        <p class="muted" style="max-width:60ch;margin:6px 0 0">Il catering non passa dal carrello: ci dici cosa ti serve, ti rispondiamo con un preventivo entro 24 ore. Ordine minimo 15 persone, prenotazione almeno 5 giorni prima.</p>
+        <div class="formule" id="formule"></div>
+        <form class="form" id="catForm">
+          <label>Tipo di evento<select name="tipo"><option>Compleanno o festa in famiglia</option><option>Pranzo o cena aziendale</option><option>Battesimo / comunione</option><option>Inaugurazione</option><option>Altro</option></select></label>
+          <label>Formula<select name="formula" id="catFormula"></select></label>
+          <label>Data dell'evento<input type="date" name="data" required></label>
+          <label>Persone<input type="number" name="persone" min="15" value="30" required></label>
+          <label>Nome e cognome<input name="nome" required placeholder="Chi organizza"></label>
+          <label>Telefono<input name="tel" type="tel" required placeholder="Per confermarti il preventivo"></label>
+          <label class="full">Dove si svolge<input name="luogo" placeholder="Indirizzo o sala, oppure «da voi in bottega»"></label>
+          <label class="full">Note e richieste<textarea name="note" rows="3" placeholder="Intolleranze, orario, servizio al tavolo, stoviglie…"></textarea></label>
+          <div class="full" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><button class="btn" style="width:auto" type="submit">Richiedi il preventivo</button><span class="hint">Nessun pagamento ora. Ti ricontattiamo noi.</span></div>
+        </form>
+      </div>
+    </div>
+
+    <aside class="cart" id="cart"></aside>
+  </div>
+  <button class="cartbar hide" id="cartbar"></button>
+</section>
+
+<script src="assets/dati.js"></script>
+<script src="assets/comune.js"></script>
+<script src="assets/negozio.js"></script>
+</body>
+</html>

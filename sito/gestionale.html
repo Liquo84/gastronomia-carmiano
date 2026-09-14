@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gestionale · Bottega Leverano 29</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/stile.css">
+</head>
+<body>
+
+<div class="top">
+  <a class="brand" href="gestionale.html">Bottega Leverano 29<small>Gestionale · accesso riservato (in questa versione è aperto)</small></a>
+  <span class="proto">Versione di prova · i dati restano nel tuo browser</span>
+  <a class="lnk" href="./" target="_blank" rel="noopener">Apri il negozio ↗</a>
+</div>
+
+<section id="view-admin">
+  <div class="admin" id="adminShell">
+    <aside class="side">
+      <div class="who"><b>Bottega Leverano 29</b><span>Titolare</span></div>
+      <button class="nav on" data-page="prod">Produzione</button>
+      <button class="nav" data-page="orders">Ordini <span class="cnt" id="cntNew">0</span></button>
+      <button class="nav" data-page="menu">Menù e giorni</button>
+      <button class="nav" data-page="catering">Richieste catering <span class="cnt" id="cntCat">0</span></button>
+      <button class="nav" data-page="stats">Incassi</button>
+      <button class="nav" data-page="settings">Impostazioni</button>
+      <div class="pause">
+        <label class="sw crit" id="pauseSw"><i></i> Sospendi prenotazioni</label>
+        <span class="muted">Il negozio resta visibile, il carrello si blocca. Per le ferie o quando la cucina è satura.</span>
+      </div>
+    </aside>
+    <main class="main" id="adminMain"></main>
+  </div>
+</section>
+
+<script src="assets/dati.js"></script>
+<script src="assets/comune.js"></script>
+<script src="assets/gestionale.js"></script>
+</body>
+</html>
