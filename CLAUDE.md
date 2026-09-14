@@ -33,6 +33,9 @@ niente pagamenti veri, niente WhatsApp. Serve a far provare il flusso e a decide
   fasce da 15 minuti) sono in `comune.js` e si cambiano dalle Impostazioni del gestionale.
   Non duplicarle altrove.
 - La pubblicazione è automatica via GitHub Pages, workflow `.github/workflows/pubblica.yml`.
+  Negli HTML gli indirizzi di stile e script finiscono con `?v=__V__`: il workflow lo sostituisce
+  con il codice del commit, così i browser non tengono in cache script vecchi con pagine nuove
+  (il 14/09 Davide ha visto la pagina senza menù per questo). Non togliere il segnaposto.
   Le modifiche verificate si caricano su `main` senza chiedere, come per il sito di Maurizio:
   poi si dice a Davide com'è andata.
 

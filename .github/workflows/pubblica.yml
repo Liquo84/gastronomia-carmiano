@@ -27,7 +27,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - name: Prepara la cartella da pubblicare
-        run: touch sito/.nojekyll
+        # Il segnaposto __V__ negli indirizzi di stile e script diventa il codice
+        # del commit: a ogni modifica gli indirizzi cambiano e i browser non
+        # possono tenere in cache uno script vecchio con una pagina nuova.
+        run: |
+          touch sito/.nojekyll
+          sed -i "s/__V__/${GITHUB_SHA::7}/g" sito/*.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: sito
