@@ -47,7 +47,10 @@ Negozio e gestionale in due schede si aggiornano a vicenda tramite l'evento `sto
 così l'ordine fatto dal negozio compare nel gestionale senza ricaricare, e il tracking
 del cliente avanza quando la bottega cambia stato. La stampa della lista di produzione
 usa la stampa vera del browser, con un foglio di stile dedicato.
-**Esito.** Da verificare all'indirizzo pubblico dopo il primo workflow.
+**Esito.** Online dal primo workflow (20 secondi). Al controllo sul sito pubblico due difetti,
+corretti subito: a 375 px la riga scorrevole delle categorie allargava la griglia del negozio
+(la pagina misurava 731 px), e nella bacheca ordini una colonna vuota stirava l'intestazione.
+Ordine di prova #149 fatto dal negozio online e comparso nel gestionale.
 
 ## 13/09 — Seconda versione del prototipo: panna e pre-ordini
 
