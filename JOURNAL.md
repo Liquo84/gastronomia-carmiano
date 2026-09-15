@@ -15,7 +15,7 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 | Indirizzo | https://liquo84.github.io/gastronomia-carmiano/ (gestionale: `/gestionale.html`) |
 | Pubblicazione | Automatica a ogni push su `main` |
 | Nome | «Bottega Leverano 29», segnaposto |
-| Testi | Riscritti e collaudati alla cieca il 15/09, promossi al secondo giro. Tono e fatti in `VOCE.md` |
+| Testi | Riscritti il 15/09 e online. Collaudo alla cieca **non promosso**: primo giro perso 2 pagine su 3, secondo giro non cieco (la versione vecchia si riconosceva da «prenotazione»). Il tipo di voce va ricollaudato. Tono e fatti in `VOCE.md` |
 | Gestionale a 375 px | I riquadri dei numeri sbordavano già prima; corretti il 15/09 in un'altra sessione (commit eb78e04) |
 | Costo | Zero |
 
@@ -34,6 +34,8 @@ finito: oggi non parte nessun messaggio e nessun rimborso.
 - [ ] **Contanti**: sempre, solo per il ritiro, o solo per clienti già affidabili? — Un ordine in contanti non ritirato è cibo cucinato a vuoto.
 - [ ] **Fiscalità**: scontrino alla consegna dal registratore di cassa, o collegamento RT? Da chiarire col commercialista. — Blocca i pagamenti veri.
 - [ ] **Menù vero** dalla bottega. — Col menù di esempio restano dubbi che solo chi cucina può chiudere: la «pizza rustica» con solo pomodoro e mozzarella è una margherita in teglia; le pittule portano «Veg» ma esistono anche col baccalà; nei pezzetti di cavallo il pane è compreso o no; per le teglie non è deciso se si contano come una porzione o come otto.
+- [ ] **Puccia farcita: friarielli o cime di rapa?** Il menù dice «friarielli» nella puccia e «cime di rapa» nelle orecchiette; «friarielli» è la parola campana. — Il ripieno c'è davvero? Se sì, una sola parola in tutto il menù.
+- [ ] **«Chi ritira e quando»** nel gestionale (`gestionale.js`, riga 31): la tabella contiene anche le consegne. — La revisione del copywriter l'aveva segnalato ed è rimasto senza dirlo a Davide.
 - [ ] **Annullare un ordine**: il riepilogo dice «Puoi annullare fino alla chiusura degli ordini», ma il sito non ha un modo per farlo. — Va deciso se si chiama la bottega, si scrive su WhatsApp o si mette un bottone.
 - [ ] **Rimborso quando la bottega rifiuta un ordine pagato**: i testi lo promettono ma non è scritto in `PROGETTO.md`. — Serve confermarlo prima dei pagamenti veri (Stripe).
 - [ ] **Fase 2**: database e login. Supabase resta la proposta (stesso impianto del CRM preventivi), va confermata.
