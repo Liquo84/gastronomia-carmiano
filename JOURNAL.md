@@ -41,8 +41,12 @@ spariti i vanti («appena sfornato», «della casa»). Gli errori ora dicono cos
 la nuova per il checkout. **Non promosso.** Frase segnalata nella nuova: «Ti restituiamo quello
 che hai pagato», diventata «Ti rimborsiamo». Le varianti delle pittule sono tornate come
 «Disponibili con pomodoro o baccalà».
-**Da fare.** Secondo giro su negozio e gestionale: tenere i dettagli e le immagini di cucina dei
-testi vecchi, togliere solo i vanti, poi un nuovo test su quelle due pagine.
+**Secondo giro** (commit 677c99c). Nel menù tornano ingredienti e varianti («Puccia leccese…
+friarielli»); nel gestionale tornano «la lista si congela», «il carrello si blocca», «Chi ritira e
+quando». Via solo i vanti, e resta la parola «ordine». Nel nuovo test, versione vecchia contro terza
+versione, Davide ha scelto la terza sia per il negozio sia per il gestionale, senza segnalare frasi.
+**Esito.** Promosso al secondo giro. I testi attuali sono quelli buoni. Il giro completo si rifà
+quando ci sarà il nome vero.
 
 ## 14/09 — Il giorno si sceglie nel checkout
 
