@@ -6,7 +6,7 @@ const CATS=["Antipasti","Primi","Secondi","Contorni","Rustici e pizze","Dolci","
 const ALL=["mar","mer","gio","ven","sab","dom"];
 
 const SEED_PRODUCTS=[
- {id:1,cat:"Antipasti",n:"Pittule",d:"Frittelle di pasta lievitata, 10 pezzi.",p:4.5,veg:true,days:ALL,limit:null},
+ {id:1,cat:"Antipasti",n:"Pittule",d:"Frittelle di pasta lievitata, 10 pezzi. Disponibili con pomodoro o baccalà.",p:4.5,veg:true,days:ALL,limit:null},
  {id:2,cat:"Antipasti",n:"Polpette al sugo",d:"Di vitello, 6 pezzi con il loro sugo.",p:6.5,days:ALL,limit:30},
  {id:3,cat:"Antipasti",n:"Puccia farcita",d:"Con capocollo e caciocavallo.",p:5,days:ALL,limit:null},
  {id:4,cat:"Antipasti",n:"Frisella al pomodoro",d:"Pomodoro, capperi, origano e olio.",p:3.5,veg:true,days:ALL,limit:null},

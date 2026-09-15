@@ -78,4 +78,5 @@ ed eventi, su preventivo.
 
 ## Correzioni di Davide
 - 15/09/2026 — Tu nel negozio, confermato. Perimetro: tutto il sito, gestionale compreso. Le descrizioni dei piatti e delle formule catering (esempi in dati.js) si riscrivono anche loro, ma descrivono solo il piatto: niente «della casa», «appena sfornato», provenienze o ricette di famiglia.
+- 15/09/2026, collaudo alla cieca — le varianti di un piatto si scrivono «Disponibili con …», non «Anche con …». «Ti restituiamo quello che hai pagato» suona finto: si dice «Ti rimborsiamo». Nel negozio e nel gestionale i testi vecchi hanno battuto quelli ripuliti: tenere ingredienti, provenienze del piatto («leccese») e immagini di cucina («la lista si congela», «il carrello si blocca»), togliere solo i vanti.
 - 14/09/2026 — «troppo testo»: nel negozio si scrive il minimo, le informazioni stanno dove servono (sotto il giorno scelto, nel carrello, nei passi del checkout).

@@ -32,6 +32,18 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 
 ---
 
+## 15/09 — Testi riscritti e collaudo alla cieca
+
+**Cosa.** Passaggio del copywriter su negozio, checkout, menù di esempio e gestionale (commit
+f6a69f3). L'ordine del cliente si chiama sempre «ordine», mai più «prenotazione». Dal menù sono
+spariti i vanti («appena sfornato», «della casa»). Gli errori ora dicono cosa fare. Creata `VOCE.md`.
+**Collaudo alla cieca.** Davide ha scelto la versione vecchia per il negozio e per il gestionale,
+la nuova per il checkout. **Non promosso.** Frase segnalata nella nuova: «Ti restituiamo quello
+che hai pagato», diventata «Ti rimborsiamo». Le varianti delle pittule sono tornate come
+«Disponibili con pomodoro o baccalà».
+**Da fare.** Secondo giro su negozio e gestionale: tenere i dettagli e le immagini di cucina dei
+testi vecchi, togliere solo i vanti, poi un nuovo test su quelle due pagine.
+
 ## 14/09 — Il giorno si sceglie nel checkout
 
 **Cosa.** Via la fila dei giorni dalla vetrina. Il menù mostra tutti i piatti in vendita; quelli

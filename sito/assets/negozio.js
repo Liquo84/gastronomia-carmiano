@@ -92,7 +92,7 @@ function renderCheckout(){
   <span class="hint">Puoi annullare fino alla chiusura degli ordini.</span></div>`;
  }else{const ord=co.placed;const seqs=["new","prep","ready","done"];const idx=ord.st==="rej"?-1:seqs.indexOf(ord.st);
   body=`<div class="success"><div class="eyebrow">Grazie, ${esc(ord.cust.name.split(" ")[0])}</div><div class="big">${ord.st==="rej"?"Ordine rifiutato":"Ordine ricevuto"}</div><div class="code">#${ord.n}</div>
-  <p class="muted" style="margin:0 0 16px">${ord.st==="rej"?"Non possiamo preparare questo ordine: ti abbiamo scritto su WhatsApp al "+esc(ord.cust.tel)+"."+(ord.pay!=="cash"?" Ti restituiamo quello che hai pagato.":""):`${dfull(ord.date)} alle ${ord.slot}, ${ord.mode==="consegna"?"a "+esc(ord.addr):"in Via Leverano 29/A"}.<br>Ti avvisiamo su WhatsApp al ${esc(ord.cust.tel)}.`}</p>
+  <p class="muted" style="margin:0 0 16px">${ord.st==="rej"?"Non possiamo preparare questo ordine: ti abbiamo scritto su WhatsApp al "+esc(ord.cust.tel)+"."+(ord.pay!=="cash"?" Ti rimborsiamo.":""):`${dfull(ord.date)} alle ${ord.slot}, ${ord.mode==="consegna"?"a "+esc(ord.addr):"in Via Leverano 29/A"}.<br>Ti avvisiamo su WhatsApp al ${esc(ord.cust.tel)}.`}</p>
   <div class="timeline">${[["Ricevuto"],["Confermato"],["Pronto"],[ord.mode==="consegna"?"Consegnato":"Ritirato"]].map((t,i)=>`<div class="tl ${i<idx?"done":i===idx?"now":""}"><i class="b"></i><div><b>${t[0]}</b></div></div>`).join("")}</div></div>`;
  }
  const canBack=co.step>1&&co.step<5;
