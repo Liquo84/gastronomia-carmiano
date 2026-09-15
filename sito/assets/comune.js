@@ -79,12 +79,12 @@ function isOpenNow(){const h=hoursOf(TODAY);if(!h)return false;const t=nowHM();r
 /* Stato prenotazioni per un giorno: {open, why}.
    Domani si chiude alle `cutoff` di oggi; oggi si accetta solo fino a `sameDayCutoff`. */
 function orderState(k){
- if(settings.pause)return{open:false,why:"prenotazioni sospese"};
+ if(settings.pause)return{open:false,why:"ordini sospesi"};
  if(!hoursOf(k))return{open:false,why:"chiuso"};
  const t=nowHM();
- if(k===TODAY){if(!settings.sameDay)return{open:false,why:"solo su prenotazione"};return t<settings.sameDayCutoff?{open:true,why:"fino alle "+settings.sameDayCutoff}:{open:false,why:"chiuse alle "+settings.sameDayCutoff}}
- if(k===TOMORROW)return t<settings.cutoff?{open:true,why:"entro le "+settings.cutoff+" di oggi"}:{open:false,why:"chiuse alle "+settings.cutoff};
- return{open:true,why:"aperte"};
+ if(k===TODAY){if(!settings.sameDay)return{open:false,why:"si ordina il giorno prima"};return t<settings.sameDayCutoff?{open:true,why:"fino alle "+settings.sameDayCutoff}:{open:false,why:"chiusi alle "+settings.sameDayCutoff}}
+ if(k===TOMORROW)return t<settings.cutoff?{open:true,why:"entro le "+settings.cutoff+" di oggi"}:{open:false,why:"chiusi alle "+settings.cutoff};
+ return{open:true,why:"entro le "+settings.cutoff+" del giorno prima"};
 }
 /* Porzioni già prenotate di un piatto in un giorno (gli ordini rifiutati non contano). */
 function sold(pid,k){return orders.filter(o=>o.date===k&&o.st!=="rej").reduce((s,o)=>s+o.rows.filter(r=>r.id===pid).reduce((a,r)=>a+r.q,0),0)}

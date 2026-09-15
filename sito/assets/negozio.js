@@ -20,7 +20,7 @@ function renderCats(){
    I piatti che non si fanno tutti i giorni portano un'etichetta con i giorni. */
 function renderMenu(){
  const blocked=settings.pause;
- const html=CATS.map((c,i)=>{const list=products.filter(p=>p.cat===c&&!p.hidden&&(!p.days||p.days.length));if(!list.length)return"";return`<div id="cat-${i}"><div class="cat-h"><h2>${c}</h2></div>${list.map(p=>{const q=cart[p.id]||0;const only=p.days&&p.days.length<ALL.length?`<span class="tag">Solo ${WEEK.filter(d=>p.days.includes(d)).join(", ")}</span>`:"";return`<div class="item"><div><div class="n">${esc(p.n)}</div>${p.d?`<div class="d">${esc(p.d)}</div>`:""}<div class="meta"><span class="price num">${eur(p.p)}</span>${p.veg?'<span class="tag veg">Veg</span>':""}${only}</div></div><div class="act">${q>0&&!blocked?`<span class="stepper"><button data-dec="${p.id}" aria-label="Togli">−</button><b class="num">${q}</b><button data-inc="${p.id}" aria-label="Aggiungi">+</button></span>`:`<button class="add" data-inc="${p.id}" ${blocked?"disabled":""} aria-label="Aggiungi ${esc(p.n)}">+</button>`}</div></div>`}).join("")}</div>`}).join("");
+ const html=CATS.map((c,i)=>{const list=products.filter(p=>p.cat===c&&!p.hidden&&(!p.days||p.days.length));if(!list.length)return"";return`<div id="cat-${i}"><div class="cat-h"><h2>${c}</h2></div>${list.map(p=>{const q=cart[p.id]||0;const only=p.days&&p.days.length<ALL.length?`<span class="tag">Solo ${WEEK.filter(d=>p.days.includes(d)).join(", ")}</span>`:"";return`<div class="item"><div><div class="n">${esc(p.n)}</div>${p.d?`<div class="d">${esc(p.d)}</div>`:""}<div class="meta"><span class="price num">${eur(p.p)}</span>${p.veg?'<span class="tag veg">Veg</span>':""}${only}</div></div><div class="act">${q>0&&!blocked?`<span class="stepper"><button data-dec="${p.id}" aria-label="Togli uno">−</button><b class="num">${q}</b><button data-inc="${p.id}" aria-label="Aggiungi uno">+</button></span>`:`<button class="add" data-inc="${p.id}" ${blocked?"disabled":""} aria-label="Aggiungi ${esc(p.n)}">+</button>`}</div></div>`}).join("")}</div>`}).join("");
  $("#menu").innerHTML=html||`<div class="empty-day">Il menù non è ancora pubblicato.</div>`;
  $("#menu").querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{const id=+b.dataset.inc;cart[id]=(cart[id]||0)+1;refreshShop();});
  $("#menu").querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{const id=b.dataset.dec;cart[id]=Math.max(0,(cart[id]||0)-1);if(!cart[id])delete cart[id];refreshShop();});
@@ -30,16 +30,16 @@ function renderCart(){
  const body=rows.length?`<div class="cart-body">${rows.map(r=>`<div class="line"><span class="q num">${r.q}×</span><span>${esc(r.p.n)}<div class="qbtn"><button data-cdec="${r.p.id}">−</button><button data-cinc="${r.p.id}">+</button></div></span><span class="num">${eur(r.p.p*r.q)}</span></div>`).join("")}
  <div class="tot"><div><span>Subtotale</span><span class="num">${eur(sub)}</span></div><div><span>${mode==="consegna"?"Consegna a "+zone.c:"Ritiro in bottega"}</span><span class="num">${del?eur(del):"gratis"}</span></div><div class="grand"><span>Totale</span><span class="num">${eur(sub+del)}</span></div></div>
  ${under?`<div class="minwarn">Per la consegna a ${zone.c} l'ordine minimo è ${eur(min)}: mancano ${eur(min-sub)}.</div>`:""}
- ${settings.pause?`<div class="minwarn">Prenotazioni sospese.</div>`:""}
- <button class="btn" id="goCheckout" ${under||settings.pause?"disabled":""}>Prenota · ${eur(sub+del)}</button>
+ ${settings.pause?`<div class="minwarn">Ordini online sospesi.</div>`:""}
+ <button class="btn" id="goCheckout" ${under||settings.pause?"disabled":""}>Scegli il giorno · ${eur(sub+del)}</button>
  </div>`
- :`<div class="cart-empty">Il carrello è vuoto.</div>`;
- $("#cart").innerHTML=`<div class="for"><b>Il tuo ordine</b></div><div class="mode"><button class="${mode==="ritiro"?"on":""}" data-mode="ritiro">Ritiro</button><button class="${mode==="consegna"?"on":""}" data-mode="consegna">Consegna</button></div>${body}`;
+ :`<div class="cart-empty">Il carrello è vuoto. Aggiungi i piatti dal menù.</div>`;
+ $("#cart").innerHTML=`<div class="for"><b>Carrello</b></div><div class="mode"><button class="${mode==="ritiro"?"on":""}" data-mode="ritiro">Ritiro</button><button class="${mode==="consegna"?"on":""}" data-mode="consegna">Consegna</button></div>${body}`;
  $("#cart").querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;refreshShop()});
  $("#cart").querySelectorAll("[data-cinc]").forEach(b=>b.onclick=()=>{cart[b.dataset.cinc]++;refreshShop()});
  $("#cart").querySelectorAll("[data-cdec]").forEach(b=>b.onclick=()=>{const id=b.dataset.cdec;cart[id]--;if(cart[id]<=0)delete cart[id];refreshShop()});
  const gc=$("#goCheckout");if(gc)gc.onclick=openCheckout;
- const bar=$("#cartbar");const n=cartCount();bar.classList.toggle("hide",!n);bar.innerHTML=`<span>${n} ${n===1?"articolo":"articoli"}</span><span>Prenota · ${eur(sub+del)}</span>`;bar.onclick=()=>{if(under){toast(`Ordine minimo per la consegna: ${eur(min)}`);return}if(settings.pause){toast("Prenotazioni sospese");return}openCheckout()};
+ const bar=$("#cartbar");const n=cartCount();bar.classList.toggle("hide",!n);bar.innerHTML=`<span>${n} ${n===1?"articolo":"articoli"}</span><span>Scegli il giorno · ${eur(sub+del)}</span>`;bar.onclick=()=>{if(under){toast(`Per la consegna a ${zone.c} l'ordine minimo è ${eur(min)}`);return}if(settings.pause){toast("Ordini online sospesi");return}openCheckout()};
 }
 function renderFormule(){
  $("#formule").innerHTML=FORMULE.map(f=>`<div class="formula"><h3>${f.n}</h3><span class="pp">da ${eur(f.pp)} a persona</span><span class="small muted">${f.l.join(", ").toLowerCase()}</span></div>`).join("");
@@ -57,30 +57,30 @@ function closeCheckout(){const o=$("#ov");if(o)o.remove();co=null}
 function cartProblems(k){const rows=cartRows();return{bad:rows.filter(r=>!offeredOn(r.p,k)),over:rows.filter(r=>offeredOn(r.p,k)&&remaining(r.p,k)<r.q)}}
 function renderCheckout(){
  let o=$("#ov");if(!o){o=document.createElement("div");o.id="ov";o.className="overlay";document.body.appendChild(o);o.onclick=e=>{if(e.target===o)closeCheckout()}}
- const titles={1:"Quando e come",2:"I tuoi dati",3:"Pagamento",4:"Riepilogo",5:"Prenotazione ricevuta"};
+ const titles={1:"Quando e come",2:"I tuoi dati",3:"Pagamento",4:"Riepilogo",5:"Il tuo ordine"};
  const day=co.day;
  const rows=cartRows();const sub=cartSub();const zone=settings.zones.find(z=>z.c===co.zone)||settings.zones[0];const del=co.mode==="consegna"?zone.cost:0;const tot=sub+del;
  let body="";
  if(co.step===1){const st=orderState(day);const sl=st.open?slotsFor(day):[];const {bad,over}=cartProblems(day);
-  body=`<div class="eyebrow" style="margin:0 0 4px">Per quando</div>
+  body=`<div class="eyebrow" style="margin:0 0 4px">Per che giorno</div>
   <div class="days">${nextDays(7).map(k=>{const s=orderState(k);const d=new Date(k+"T00:00");return`<button class="day ${k===day?"on":""} ${s.open?"":"off"}" data-day="${k}" ${s.open?"":"disabled"}><small>${DN[wd(k)].slice(0,3)} ${d.getDate()}</small><b>${dlabel(k)}</b>${s.open?(k===TODAY?`<span>${s.why}</span>`:""):`<span>${s.why}</span>`}</button>`}).join("")}</div>
-  <span class="hint">${st.open?(day===TODAY?`Per oggi si ordina entro le ${settings.sameDayCutoff}`:day===TOMORROW?`Ordina entro le ${settings.cutoff} di oggi`:`Ordina entro le ${settings.cutoff} del giorno prima`):"Prenotazioni chiuse per questo giorno"}</span>
+  <span class="hint">${st.open?(day===TODAY?`Per oggi si ordina entro le ${settings.sameDayCutoff}`:day===TOMORROW?`Ordina entro le ${settings.cutoff} di oggi`:`Ordina entro le ${settings.cutoff} del giorno prima`):"Per questo giorno gli ordini sono chiusi"}</span>
   ${bad.length||over.length?`<div class="minwarn" style="margin-top:12px">${bad.map(r=>`${esc(r.p.n)}: ${dlabel(day).toLowerCase()} non si fa`).concat(over.map(r=>`${esc(r.p.n)}: ne restano ${remaining(r.p,day)}`)).join("<br>")}</div><button class="btn sm sec" id="fixCart" style="margin-top:8px">Sistema il carrello</button>`:""}
-  <div class="eyebrow" style="margin:22px 0 6px">Come</div>
+  <div class="eyebrow" style="margin:22px 0 6px">Ritiro o consegna</div>
   <div class="opts">
   <label class="opt ${co.mode==="ritiro"?"on":""}" data-m="ritiro"><span class="rad"></span><span><b>Ritiro in bottega</b><span>Via Leverano 29/A</span></span><span class="num">gratis</span></label>
-  <label class="opt ${co.mode==="consegna"?"on":""}" data-m="consegna"><span class="rad"></span><span><b>Consegna a casa</b><span>Carmiano e dintorni</span></span><span class="num">${settings.zones[0].cost?"da "+eur(Math.min(...settings.zones.map(z=>z.cost))):"gratis a "+esc(settings.zones[0].c)}</span></label></div>
+  <label class="opt ${co.mode==="consegna"?"on":""}" data-m="consegna"><span class="rad"></span><span><b>Consegna a casa</b><span>Carmiano e paesi vicini</span></span><span class="num">${settings.zones[0].cost?"da "+eur(Math.min(...settings.zones.map(z=>z.cost))):"gratis a "+esc(settings.zones[0].c)}</span></label></div>
   ${co.mode==="consegna"?`<div style="margin:14px 0 0"><label class="small muted" style="font-weight:700">Comune<select id="zoneSel">${settings.zones.map(z=>`<option ${z.c===co.zone?"selected":""}>${z.c} · ${z.cost?eur(z.cost):"gratis"} · min. ${eur(z.min)}</option>`).join("")}</select></label></div>`:""}
   <div class="eyebrow" style="margin:22px 0 4px">A che ora</div>
-  <div class="slots">${sl.length?sl.map(s=>`<button data-slot="${s.s}" class="${co.slot===s.s?"on":""}" ${s.full?"disabled title='Fascia piena'":""}>${s.s}</button>`).join(""):'<span class="muted small">Nessun orario disponibile.</span>'}</div>
+  <div class="slots">${sl.length?sl.map(s=>`<button data-slot="${s.s}" class="${co.slot===s.s?"on":""}" ${s.full?"disabled title='Fascia piena'":""}>${s.s}</button>`).join(""):'<span class="muted small">Nessun orario libero: scegli un altro giorno.</span>'}</div>
   ${co.err?`<p class="err">${co.err}</p>`:""}`;
  }else if(co.step===2){body=`<div class="form">
   <label>Nome<input id="f_name" value="${esc(co.name)}"></label>
   <label>Telefono<input id="f_tel" type="tel" value="${esc(co.tel)}" placeholder="Per avvisarti su WhatsApp"></label>
   <label class="full">Email <span class="muted" style="font-weight:500">(facoltativa)</span><input id="f_email" type="email" value="${esc(co.email)}"></label>
   ${co.mode==="consegna"?`<label class="full">Indirizzo · ${co.zone}<input id="f_addr" value="${esc(co.addr)}" placeholder="Via e numero civico"></label><label>Citofono<input id="f_cit" value="${esc(co.citofono)}"></label>`:""}
-  <label class="full">Note<textarea id="f_note" rows="2" placeholder="Senza cipolla, porzione doppia di pane…">${esc(co.note)}</textarea></label></div>${co.err?`<p class="err">${co.err}</p>`:""}`;
- }else if(co.step===3){const P=[["card","Carta","Visa, Mastercard, Apple Pay, Google Pay",settings.pay.card],["satispay","Satispay","Confermi dall'app",settings.pay.satispay],["cash",co.mode==="consegna"?"Contanti alla consegna":"Contanti al ritiro","Se non passi, avvisaci",settings.pay.cash]].filter(x=>x[3]);
+  <label class="full">Note<textarea id="f_note" rows="2" placeholder="Intolleranze, senza cipolla…">${esc(co.note)}</textarea></label></div>${co.err?`<p class="err">${co.err}</p>`:""}`;
+ }else if(co.step===3){const P=[["card","Carta","Visa, Mastercard, Apple Pay, Google Pay",settings.pay.card],["satispay","Satispay","Confermi dall'app",settings.pay.satispay],["cash",co.mode==="consegna"?"Contanti alla consegna":"Contanti al ritiro","Niente da pagare adesso",settings.pay.cash]].filter(x=>x[3]);
   body=`<div class="opts">${P.map(([k,t,d])=>`<label class="opt ${co.pay===k?"on":""}" data-p="${k}"><span class="rad"></span><span><b>${t}</b><span>${d}</span></span><span></span></label>`).join("")}</div>
   ${co.pay==="card"?`<div class="form" style="margin-top:16px"><label class="full">Numero carta<input value="4242 4242 4242 4242" readonly></label><label>Scadenza<input value="12/28" readonly></label><label>CVC<input value="123" readonly></label><span class="full hint">Versione di prova: nessun addebito.</span></div>`:""}`;
  }else if(co.step===4){body=`<div class="sum">
@@ -89,15 +89,15 @@ function renderCheckout(){
   <div class="row muted"><span>Consegna</span><span class="num">${del?eur(del):"gratis"}</span></div>
   <div class="row" style="font-weight:800;font-size:17px;border-top:1px solid var(--line);padding-top:8px"><span>Totale</span><span class="num">${eur(tot)}</span></div>
   <div class="row muted"><span>Pagamento</span><span>${{card:"Carta",satispay:"Satispay",cash:"Contanti"}[co.pay]}</span></div>
-  <span class="hint">Puoi annullare fino alla chiusura delle prenotazioni.</span></div>`;
+  <span class="hint">Puoi annullare fino alla chiusura degli ordini.</span></div>`;
  }else{const ord=co.placed;const seqs=["new","prep","ready","done"];const idx=ord.st==="rej"?-1:seqs.indexOf(ord.st);
-  body=`<div class="success"><div class="eyebrow">Grazie, ${esc(ord.cust.name.split(" ")[0])}</div><div class="big">${ord.st==="rej"?"Prenotazione rifiutata":"Prenotazione ricevuta"}</div><div class="code">#${ord.n}</div>
-  <p class="muted" style="margin:0 0 16px">${ord.st==="rej"?"La bottega non può accettare questa prenotazione: ti ha scritto su WhatsApp al "+esc(ord.cust.tel)+"."+(ord.pay!=="cash"?" Il pagamento viene stornato.":""):`${dfull(ord.date)} alle ${ord.slot}, ${ord.mode==="consegna"?"a "+esc(ord.addr):"in Via Leverano 29/A"}.<br>Ti avvisiamo su WhatsApp al ${esc(ord.cust.tel)}.`}</p>
-  <div class="timeline">${[["Ricevuta"],["Confermata"],["Pronta"],[ord.mode==="consegna"?"Consegnata":"Ritirata"]].map((t,i)=>`<div class="tl ${i<idx?"done":i===idx?"now":""}"><i class="b"></i><div><b>${t[0]}</b></div></div>`).join("")}</div></div>`;
+  body=`<div class="success"><div class="eyebrow">Grazie, ${esc(ord.cust.name.split(" ")[0])}</div><div class="big">${ord.st==="rej"?"Ordine rifiutato":"Ordine ricevuto"}</div><div class="code">#${ord.n}</div>
+  <p class="muted" style="margin:0 0 16px">${ord.st==="rej"?"Non possiamo preparare questo ordine: ti abbiamo scritto su WhatsApp al "+esc(ord.cust.tel)+"."+(ord.pay!=="cash"?" Ti restituiamo quello che hai pagato.":""):`${dfull(ord.date)} alle ${ord.slot}, ${ord.mode==="consegna"?"a "+esc(ord.addr):"in Via Leverano 29/A"}.<br>Ti avvisiamo su WhatsApp al ${esc(ord.cust.tel)}.`}</p>
+  <div class="timeline">${[["Ricevuto"],["Confermato"],["Pronto"],[ord.mode==="consegna"?"Consegnato":"Ritirato"]].map((t,i)=>`<div class="tl ${i<idx?"done":i===idx?"now":""}"><i class="b"></i><div><b>${t[0]}</b></div></div>`).join("")}</div></div>`;
  }
  const canBack=co.step>1&&co.step<5;
- o.innerHTML=`<div class="modal" role="dialog" aria-label="Checkout"><header><div><h2>${titles[co.step]}</h2>${co.step>1&&co.step<5?`<small>${dfull(day)}${co.slot?" alle "+co.slot:""}</small>`:""}</div><button class="x" id="coX" aria-label="Chiudi">×</button></header><div class="mbody">${co.step<5?`<div class="steps">${[1,2,3,4].map(i=>`<div class="${i<=co.step?"done":""}"></div>`).join("")}</div>`:""}${body}</div>
- <div class="mfoot">${canBack?`<button class="btn sec" id="coBack">Indietro</button>`:"<span></span>"}${co.step<4?`<button class="btn" id="coNext">Continua</button>`:co.step===4?`<button class="btn" id="coNext">${co.pay==="cash"?"Conferma la prenotazione":"Paga "+eur(tot)+" e prenota"}</button>`:`<button class="btn" id="coDone">Torna al menù</button>`}</div></div>`;
+ o.innerHTML=`<div class="modal" role="dialog" aria-label="Completa l'ordine"><header><div><h2>${titles[co.step]}</h2>${co.step>1&&co.step<5?`<small>${dfull(day)}${co.slot?" alle "+co.slot:""}</small>`:""}</div><button class="x" id="coX" aria-label="Chiudi">×</button></header><div class="mbody">${co.step<5?`<div class="steps">${[1,2,3,4].map(i=>`<div class="${i<=co.step?"done":""}"></div>`).join("")}</div>`:""}${body}</div>
+ <div class="mfoot">${canBack?`<button class="btn sec" id="coBack">Indietro</button>`:"<span></span>"}${co.step<4?`<button class="btn" id="coNext">Continua</button>`:co.step===4?`<button class="btn" id="coNext">${co.pay==="cash"?"Manda l'ordine":"Paga "+eur(tot)+" e ordina"}</button>`:`<button class="btn" id="coDone">Torna al menù</button>`}</div></div>`;
  $("#coX").onclick=closeCheckout;
  o.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{if(b.disabled)return;co.day=b.dataset.day;co.slot=null;co.err="";renderCheckout()});
  const fx=$("#fixCart");if(fx)fx.onclick=()=>{const {bad,over}=cartProblems(co.day);bad.forEach(r=>delete cart[r.p.id]);over.forEach(r=>{const rem=remaining(r.p,co.day);if(rem>0)cart[r.p.id]=rem;else delete cart[r.p.id]});refreshShop();if(!cartRows().length){closeCheckout();toast("Il carrello è vuoto");return}renderCheckout()};
@@ -109,13 +109,13 @@ function renderCheckout(){
  const dn=$("#coDone");if(dn)dn.onclick=()=>{closeCheckout();window.scrollTo({top:0,behavior:"smooth"})};
  const nx=$("#coNext");if(nx)nx.onclick=()=>{
   if(co.step===1){const st=orderState(co.day);const {bad,over}=cartProblems(co.day);
-   if(!st.open){co.err="Scegli un giorno.";return renderCheckout()}
-   if(bad.length||over.length){co.err="Sistema il carrello prima di continuare.";return renderCheckout()}
-   if(!co.slot){co.err="Scegli l'ora.";return renderCheckout()}
+   if(!st.open){co.err="Per questo giorno gli ordini sono chiusi: scegline un altro.";return renderCheckout()}
+   if(bad.length||over.length){co.err="Prima premi «Sistema il carrello», qui sopra.";return renderCheckout()}
+   if(!co.slot){co.err="Manca l'ora: sceglila qui sopra.";return renderCheckout()}
    if(co.mode==="consegna"&&sub<zone.min){co.err=`Per ${zone.c} l'ordine minimo è ${eur(zone.min)}.`;return renderCheckout()}
    co.step=2;co.err="";return renderCheckout()}
   if(co.step===2){co.name=$("#f_name").value.trim();co.tel=$("#f_tel").value.trim();co.email=$("#f_email").value.trim();co.note=$("#f_note").value.trim();if(co.mode==="consegna"){co.addr=$("#f_addr").value.trim();co.citofono=$("#f_cit").value.trim()}
-   if(!co.name||co.tel.replace(/\D/g,"").length<9||(co.mode==="consegna"&&!co.addr)){co.err="Servono nome, telefono"+(co.mode==="consegna"?" e indirizzo.":".");return renderCheckout()}co.step=3;co.err="";return renderCheckout()}
+   if(!co.name||co.tel.replace(/\D/g,"").length<9||(co.mode==="consegna"&&!co.addr)){co.err="Servono nome e telefono"+(co.mode==="consegna"?", più l'indirizzo per la consegna.":".");return renderCheckout()}co.step=3;co.err="";return renderCheckout()}
   if(co.step===3){co.step=4;return renderCheckout()}
   if(co.step===4){placeOrder();return}
  };
