@@ -53,6 +53,11 @@ niente pagamenti veri, niente WhatsApp. Serve a far provare il flusso e a decide
 
 ## Come si verifica
 - `node --check sito/assets/*.js` per la sintassi.
+- **Con l'anteprima di Claude non aprire il file direttamente** (niente localStorage) **e non servire
+  la Scrivania** (macOS risponde «Operation not permitted» o 404). Copia `sito/` nella cartella
+  temporanea della sessione corrente, aggiorna il percorso in `.claude/launch.json` del progetto
+  (escluso da git) e avvia l'anteprima da lì. Dopo ogni modifica da verificare, ricopia.
+  Non toccare `~/.claude/launch.json`, che vale per tutti i progetti.
 - Aprire `sito/index.html` e `sito/gestionale.html` nel browser, fare un ordine dal negozio e
   vederlo comparire nel gestionale (anche in due schede aperte insieme).
 - Controllare a 1280 e a 375 px che nulla sbordi.

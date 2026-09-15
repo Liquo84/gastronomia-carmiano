@@ -3,3 +3,5 @@ __pycache__/
 node_modules/
 .env
 .env.*
+# Configurazione locale dell'anteprima di Claude: punta a cartelle temporanee, non va online
+.claude/
