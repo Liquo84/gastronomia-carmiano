@@ -33,7 +33,7 @@ function renderCart(){
  ${settings.pause?`<div class="minwarn">Ordini online sospesi.</div>`:""}
  <button class="btn" id="goCheckout" ${under||settings.pause?"disabled":""}>Scegli il giorno · ${eur(sub+del)}</button>
  </div>`
- :`<div class="cart-empty">Il carrello è vuoto. Aggiungi i piatti dal menù.</div>`;
+ :`<div class="cart-empty">Il carrello è vuoto.</div>`;
  $("#cart").innerHTML=`<div class="for"><b>Carrello</b></div><div class="mode"><button class="${mode==="ritiro"?"on":""}" data-mode="ritiro">Ritiro</button><button class="${mode==="consegna"?"on":""}" data-mode="consegna">Consegna</button></div>${body}`;
  $("#cart").querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;refreshShop()});
  $("#cart").querySelectorAll("[data-cinc]").forEach(b=>b.onclick=()=>{cart[b.dataset.cinc]++;refreshShop()});

@@ -25,7 +25,8 @@ ed eventi, su preventivo.
 
 ## Tono
 - **Persona:** tu nel negozio (già in uso in tutto il sito). Nel gestionale si parla alla bottega in modo
-  diretto, senza soggetto.
+  diretto: frasi senza soggetto o il tu da collega («togli quelli in cui non si fa»), mai l'infinito da
+  modulo («togliere…»). Il tu nel gestionale era nei testi che hanno vinto il collaudo del 15/09.
 - **Registro:** come parla chi sta al banco di una gastronomia di paese: frasi corte, cortese, pratico.
   Nessuna formula da brochure. Nel gestionale, parole da cucina e da cassa.
 - **Suona così:**
