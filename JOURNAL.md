@@ -7,7 +7,7 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 
 ---
 
-## Stato al 14/09/2026
+## Stato al 15/09/2026
 
 | | |
 |---|---|
@@ -15,19 +15,27 @@ Voce nuova in cima. Formato: **cosa**, **perché**, **esito** (aggiornato dopo).
 | Indirizzo | https://liquo84.github.io/gastronomia-carmiano/ (gestionale: `/gestionale.html`) |
 | Pubblicazione | Automatica a ogni push su `main` |
 | Nome | «Bottega Leverano 29», segnaposto |
-| Testi | Ridotti all'essenziale il 14/09; da rivedere con il nome vero |
+| Testi | Riscritti e collaudati alla cieca il 15/09, promossi al secondo giro. Tono e fatti in `VOCE.md` |
+| Gestionale a 375 px | I riquadri dei numeri sbordavano già prima; corretti il 15/09 in un'altra sessione (commit eb78e04) |
 | Costo | Zero |
+
+**Non contato:** il menù, le formule catering, gli orari e le zone sono esempi. Anche i testi del
+menù sono stati collaudati su piatti di esempio: con il menù vero vanno riscritti. Il telefono
+0832 000 000 è finto. I testi che parlano di WhatsApp, comande stampate e rimborsi descrivono il sito
+finito: oggi non parte nessun messaggio e nessun rimborso.
 
 ---
 
 ## Questioni aperte
 
-- [ ] **Nome e identità** dell'attività. La palette panna è confermata.
-- [ ] **Orario di chiusura prenotazioni**: 20:00 della sera prima va bene? E il giorno stesso si accetta (fino alle 10:00) o no?
-- [ ] **Consegna a domicilio** nella prima fase, o solo ritiro?
-- [ ] **Contanti**: sempre, solo per il ritiro, o solo per clienti già affidabili?
-- [ ] **Fiscalità**: scontrino alla consegna dal registratore di cassa, o collegamento RT? Da chiarire col commercialista.
-- [ ] **Testi** di tutto il sito, da riscrivere quando ci sarà il nome.
+- [ ] **Nome e identità** dell'attività. La palette panna è confermata. — Senza nome i testi restano provvisori e il giro completo del copywriter non si può fare.
+- [ ] **Orario di chiusura prenotazioni**: 20:00 della sera prima va bene? E il giorno stesso si accetta (fino alle 10:00) o no? — Se il giorno stesso resta aperto, la frase «alla chiusura la lista si congela» non è vera fino alle 10:00.
+- [ ] **Consegna a domicilio** nella prima fase, o solo ritiro? — Decide se il checkout mostra zone e costi.
+- [ ] **Contanti**: sempre, solo per il ritiro, o solo per clienti già affidabili? — Un ordine in contanti non ritirato è cibo cucinato a vuoto.
+- [ ] **Fiscalità**: scontrino alla consegna dal registratore di cassa, o collegamento RT? Da chiarire col commercialista. — Blocca i pagamenti veri.
+- [ ] **Menù vero** dalla bottega. — Col menù di esempio restano dubbi che solo chi cucina può chiudere: la «pizza rustica» con solo pomodoro e mozzarella è una margherita in teglia; le pittule portano «Veg» ma esistono anche col baccalà; nei pezzetti di cavallo il pane è compreso o no; per le teglie non è deciso se si contano come una porzione o come otto.
+- [ ] **Annullare un ordine**: il riepilogo dice «Puoi annullare fino alla chiusura degli ordini», ma il sito non ha un modo per farlo. — Va deciso se si chiama la bottega, si scrive su WhatsApp o si mette un bottone.
+- [ ] **Rimborso quando la bottega rifiuta un ordine pagato**: i testi lo promettono ma non è scritto in `PROGETTO.md`. — Serve confermarlo prima dei pagamenti veri (Stripe).
 - [ ] **Fase 2**: database e login. Supabase resta la proposta (stesso impianto del CRM preventivi), va confermata.
 
 ---
@@ -47,6 +55,14 @@ quando». Via solo i vanti, e resta la parola «ordine». Nel nuovo test, versio
 versione, Davide ha scelto la terza sia per il negozio sia per il gestionale, senza segnalare frasi.
 **Esito.** Promosso al secondo giro. I testi attuali sono quelli buoni. Il giro completo si rifà
 quando ci sarà il nome vero.
+**Correzione mia.** Nel primo giro, per togliere i vanti, ho tolto anche i dettagli veri («leccese»,
+i friarielli, le varianti) e le frasi di cucina. Il testo è diventato sterile e ha perso contro quello
+vecchio. Regola uscita dal test: si toglie solo il vanto senza fonte, il dettaglio concreto resta.
+Ora è la sezione 11 del radar del copywriter.
+**Nota tecnica.** Il server Python lanciato dal pannello Browser non può leggere la Scrivania
+(macOS dà «Operation not permitted» o 404). Per l'anteprima si serve una copia di `sito/` nella
+cartella temporanea della sessione; la configurazione sta in `.claude/launch.json`, che non va su git.
+Col file aperto direttamente l'anteprima non ha localStorage.
 
 ## 14/09 — Il giorno si sceglie nel checkout
 
