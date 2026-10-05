@@ -42,6 +42,15 @@ finito: oggi non parte nessun messaggio e nessun rimborso.
 
 ---
 
+## 05/10 — L'attività ha un progetto suo, il sito resta qui
+
+**Cosa.** DB & G è stata acquisita (Luca a Davide, riferito il 05/10). Acquisizione, contratti e numeri hanno
+un progetto loro, `~/Desktop/Gastronomia Carmiano`. Questo repository resta il solo sito.
+**Perché il sito non si sposta.** Pages, memoria, anteprima e mappa usano questo percorso: spostarlo rompe dei
+rimandi e non porta niente.
+
+---
+
 ## 15/09 — Testi riscritti e collaudo alla cieca
 
 **Cosa.** Passaggio del copywriter su negozio, checkout, menù di esempio e gestionale (commit

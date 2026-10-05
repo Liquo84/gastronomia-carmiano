@@ -2,7 +2,8 @@
 
 ## Cos'è
 Sito di pre-ordine per la gastronomia d'asporto con catering di Via Leverano 29/A, Carmiano (LE):
-l'attività di DB & G che Davide e Luca (Salento Energia / SEESCo) stanno rilevando.
+l'attività di DB & G che Davide e Luca (Salento Energia / SEESCo) hanno rilevato. L'attività ha un progetto suo,
+`~/Desktop/Gastronomia Carmiano` (acquisizione, contratti, numeri): qui c'è solo il sito.
 Il nome «Bottega Leverano 29» è un **segnaposto**: il nome vero non è ancora deciso.
 
 Il modello è **vendere sul venduto**: il cliente ordina per un giorno entro la sera prima,
