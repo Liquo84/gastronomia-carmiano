@@ -42,12 +42,12 @@ finito: oggi non parte nessun messaggio e nessun rimborso.
 
 ---
 
-## 05/10 — L'attività ha un progetto suo, il sito resta qui
+## 05/10 — Il sito entra nella cartella dell'attività
 
-**Cosa.** DB & G è stata acquisita (Luca a Davide, riferito il 05/10). Acquisizione, contratti e numeri hanno
-un progetto loro, `~/Desktop/Gastronomia Carmiano`. Questo repository resta il solo sito.
-**Perché il sito non si sposta.** Pages, memoria, anteprima e mappa usano questo percorso: spostarlo rompe dei
-rimandi e non porta niente.
+**Cosa.** Il repository si è spostato da `~/Desktop/gastronomia-carmiano` a `~/Desktop/Gastronomia Carmiano/03 Sito pre-ordini`,
+dentro il progetto dell'attività (acquisizione, contratti, numeri). Resta un repository a sé, con lo stesso remoto.
+**Perché.** Davide: «dentro la cartella devi mettere anche il sito della gastronomia».
+**Esito.** Remoto e pubblicazione su Pages invariati; worktree vecchio ricollegato con `git worktree repair`.
 
 ---
 
